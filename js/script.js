@@ -40,7 +40,7 @@ function insertNewRecord(data){
 
     var celula_04 = nova_linha.insertCell(3);
     celula_04.innerHTML = `
-      <button class="btn btn-secondary m-1">editar</button>
+      <button class="btn btn-secondary m-1" onClick="onEdit(this)">editar</button>
       <button class="btn btn-danger m-1">excluir</button>
     `
 
@@ -50,4 +50,18 @@ function resetForm() {
     document.getElementById("imagem").value = "";
     document.getElementById("descricao").value = "";
     linha_selecionada = null;
+}
+
+// Editar - Nícolas Nobre
+function onEdit (table) {
+    linha_selecionada = table.parentElement.parentElement;
+    document.getElementById("produto").value = linha_selecionada.cells[0].innerHTML;
+    document.getElementById("imagem").value = "";
+    document.getElementById("descricao").value = linha_selecionada.cells[2].innerHTML;
+}
+
+function updateRecord(dados_formulario) {
+    linha_selecionada.cells[0].innerHTML = dados_formulario.produto;
+    linha_selecionada.cells[1].innerHTML = dados_formulario.imagem;
+    linha_selecionada.cells[2].innerHTML = dados_formulario.descricao;
 }
