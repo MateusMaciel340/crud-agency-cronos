@@ -11,6 +11,7 @@ function onFormSubmit(e){
     }else{
         updateRecord(dados_formulario);
     }
+    resetForm()
 }
 
 // Recuperar os dados
@@ -43,4 +44,10 @@ function insertNewRecord(data){
       <button class="btn btn-danger m-1">excluir</button>
     `
 
+}
+function resetForm() {
+    document.getElementById("produto").value = "";
+    document.getElementById("imagem").value = "";
+    document.getElementById("descricao").value = "";
+    linha_selecionada = null;
 }
