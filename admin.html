@@ -1,91 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>CRONOS AGÊNCIA - admin</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRONOS AGÊNCIA - admin</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/palette.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/estilo.css" />
-  <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="imagens/CRONOS-logo-black.png" type="image/x-icon" />
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <a href="#">
-        <img src="imagens/CRONOS-logo-white.png" alt="Agência CRONOS" />
-      </a>
-      <h1>Painel administrativo</h1>
-    </div>
-  </header>
-  <section id="servicos" class="py-5 mb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h3>Serviços</h3>
-
-          <!-- Formulário -->
-          <form class="formulario" autocomplete="off" onsubmit="onFormSubmit()">
-            <div>
-              <label>Produto</label>
-              <input type="text" id="produto" placeholder="Digite seu produto" required>
-            </div>
-
-            <div>
-              <label>Imagem</label>
-              <input type="file" id="imagem" required>
-            </div>
-
-            <div>
-              <label>Descrição</label>
-              <textarea id="descricao" placeholder="Digite a descrição do produto" required></textarea>
-            </div>
-
-            <div>
-              <input type="submit" value="Adicionar novo" class="btn btn-primary">
-            </div>
-          </form>
-          <!-- Formulário -->
-          <table class="table my-5" class="table my-5" class="tabela" id="lista-produto">
-            <thead>
-              <tr>
-                <td>Nome</td>
-                <td>Imagem</td>
-                <td>Descrição</td>
-                <td>Ações</td>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- JavaScript -->
-            </tbody>
-          </table>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#">
+                <img src="imagens/CRONOS-logo-white.png" alt="Agência CRONOS">
+            </a>
+            <h1>Painel administrativo</h1>
         </div>
-      </div>
-    </div>
-  </section>
-  <footer class="py-3 bg-light">
-    <div class="container text-center">
-      <p class="m-0">
-        copyright 2021
-        <img src="imagens/favicon.png" width="30" alt="" /> agência CRONOS
-      </p>
-    </div>
-  </footer>
+    </header>
+    <!-- Header -->
 
-  <script src="js/script.js"></script>
+    <!-- Section -->
+    <section id="servicos" class="py-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Formulário -->
+                    <form class="formulario" autocomplete="off" onsubmit="onFormSubmit()" style="margin-top: 40px;">
+                        <div class="form-group">
+                            <label>Produto</label>
+                            <input type="text" id="produto" placeholder="Digite seu produto" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagem</label>
+                            <input type="file" id="imagem" onchange="upload(this.value)" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <textarea id="descricao" placeholder="Digite a descrição do produto" required></textarea>
+                        </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
+                        <div>
+                            <input type="submit" value="Adicionar" class="btn btn-primary">
+                        </div>
+                    </form>
+                    <!-- Formulário -->
+                </div>
+                <div class="col-md-8">
+                    <!-- Tabela -->
+                    <table class="table my-5 text-center" class="tabela" id="lista-produto">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Imagem</td>
+                                <td>Descrição</td>
+                                <td>Ações</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <!-- Tabela -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section -->
+
+    <!-- Footer -->
+    <footer class="py-1 bg-light">
+        <div class="container text-center">
+            <p class="m-0">
+                Copyright 2021 <img src="imagens/CRONOS-logo.png" width="100" alt="Agência Crônos">
+            </p>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+    <!-- Script - JavaScript -->
+    <script src="js/script.js"></script>
+    <!-- Scropt - JavaScript -->
+    
 </body>
-
 </html>
