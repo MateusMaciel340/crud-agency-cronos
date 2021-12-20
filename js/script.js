@@ -56,7 +56,7 @@ function resetForm() {
 function onEdit (table) {
     linha_selecionada = table.parentElement.parentElement;
     document.getElementById("produto").value = linha_selecionada.cells[0].innerHTML;
-    document.getElementById("imagem").value = "";
+    document.getElementById("imagem").value = linha_selecionada.cells[1].innerHTML;
     document.getElementById("descricao").value = linha_selecionada.cells[2].innerHTML;
 }
 
