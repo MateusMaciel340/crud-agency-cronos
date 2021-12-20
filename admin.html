@@ -32,18 +32,18 @@
                     <form class="formulario" autocomplete="off" onsubmit="onFormSubmit()" style="margin-top: 40px;">
                         <div class="form-group">
                             <label>Produto</label>
-                            <input type="text" id="produto" placeholder="Digite seu produto" required>
+                            <input type="text" id="produto" placeholder="Digite seu produto" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Imagem</label>
-                            <input type="file" id="imagem" onchange="upload(this.value)" required>
+                            <label>Url da Imagem</label>
+                            <input type="text" id="imagem" placeholder="Digite a url da imagem" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Descrição</label>
-                            <textarea id="descricao" placeholder="Digite a descrição do produto" required></textarea>
+                            <textarea id="descricao" placeholder="Digite a descrição do produto" class="form-control" required></textarea>
                         </div>
 
-                        <div>
+                        <div class="form-group">
                             <input type="submit" value="Adicionar" class="btn btn-primary">
                         </div>
                     </form>
