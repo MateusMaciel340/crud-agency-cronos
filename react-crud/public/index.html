@@ -1,44 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/image/CRONOS-logo-black.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="description"
-      content="Web site created using create-react-app"
+      name="Crud - JavaScript Puro"
+      content="Projeto relacionado ao Desafio 02"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/CRONOS-logo-black.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <link rel="stylesheet" href="css/estilo.css">
-    <title>React App</title>
+    <link rel="stylesheet" href="css/palette.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <title>CRONOS AGÊNCIA - admin</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div id="root">
+       <!-- Header -->
+       <header>
+         <div class="container">
+           <a href="#">
+             <img src="image/CRONOS-logo-white.png" alt="Agência CRONOS">
+           </a>
+           <h1>Painel administrativo</h1>
+         </div>
+       </header>
+       <!-- Header -->
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+       <!-- Section -->
+       <section id="servicos" class="py-5 mb-5">
+         <div class="container">
+           <div class="row">
+             <div class="col-md-4">
+               <!-- Formulário -->
+               <form class="formulario" autocomplete="off" onsubmit="Crud()" style="margin-top:5px;">
+                  <div class="form-group">
+                    <label>Produto</label>
+                    <input type="text" id="produto" placeholder="Digite o título do seu produto" class="form-control" required/>
+                  </div>
+                  <div class="form-group">
+                    <label>Url da imagem</label>
+                    <input type="text" id="imagem" placeholder="Digite a url da imagem do produto"
+                    class="form-control" required/>
+                  </div>
+                  <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea id="descricao" placeholder="Digite a descrição do produto" class="form-control" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Adicionar" class="btn btn-primary">
+                  </div>
+              </form>
+               <!-- Formulário -->
+             </div>
+             <div class="col-md-8">
+               <!-- Tabela -->
+               <table class="table my-5 text-center tabela" id="lista-produto">
+                 <thead>
+                   <tr>
+                     <td>Nome</td>
+                     <td>Imagem</td>
+                     <td>Descrição</td>
+                     <td>Ações</td>
+                   </tr>
+                 </thead>
+                 <tbody>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+                 </tbody>
+               </table>
+               <!-- Tabela -->
+             </div>
+           </div>
+         </div>
+       </section>
+       <!-- Section -->
+
+       <!-- Footer -->
+       <footer class="py-1 bg-light">
+         <div class="container text-center">
+           <p class="m-0">
+            Copyright 2021 <img src="image/CRONOS-logo.png" width="100" alt="Agência Crônos">
+           </p>
+         </div>
+
+       </footer>
+       <!-- Footer -->
+
+       <!-- Js -->
+       <script src="js/script.js"></script>
+       <!-- Js -->
+    </div>
   </body>
 </html>
