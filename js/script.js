@@ -1,21 +1,21 @@
 /* Cadastro e exibição - Mateus Sousa */
 let linha_selecionada = null;
 
-function onFormSubmit(e){
+function Crud(e){
     event.preventDefault();
 
-    var dados_formulario = readFormData();
+    var dados_formulario = ler_dados_formulario();
 
     if(linha_selecionada == null){
-        insertNewRecord(dados_formulario);
+        inserir_novo_registro(dados_formulario);
     }else{
-        updateRecord(dados_formulario);
+        atualizar_registro(dados_formulario);
     }
-    resetForm()
+    resetar_formulario()
 }
 
 // Recuperar os dados
-function readFormData(){
+function ler_dados_formulario(){
     var dados_formulario = {};
     dados_formulario["produto"] = document.getElementById("produto").value;
     dados_formulario["imagem"] = document.getElementById("imagem").value;
@@ -25,7 +25,7 @@ function readFormData(){
 }
 
 // Inserir dados
-function insertNewRecord(data){
+function inserir_novo_registro(data){
     var tabela = document.getElementById("lista-produto").getElementsByTagName('tbody')[0];
     var nova_linha = tabela.insertRow(tabela.length);
 
@@ -33,19 +33,19 @@ function insertNewRecord(data){
     celula_01.innerHTML = data.produto;
 
     var celula_02 = nova_linha.insertCell(1);
-    celula_02.innerHTML = data.imagem;
+    celula_02.innerHTML = `<img src="${data.descricao}">`;
 
     var celula_03 = nova_linha.insertCell(2);
     celula_03.innerHTML = data.descricao;
 
     var celula_04 = nova_linha.insertCell(3);
     celula_04.innerHTML = `
-      <button class="btn btn-secondary m-1" onClick="onEdit(this)">editar</button>
-      <button class="btn btn-danger m-1">excluir</button>
+      <button class="btn btn-secondary m-1" onClick="Editar(this)">editar</button>
+      <button class="btn btn-danger m-1" onClick="Apagar(this)">excluir</button>
     `
 
 }
-function resetForm() {
+function resetar_formulario() {
     document.getElementById("produto").value = "";
     document.getElementById("imagem").value = "";
     document.getElementById("descricao").value = "";
@@ -53,15 +53,23 @@ function resetForm() {
 }
 
 // Editar - Nícolas Nobre
-function onEdit (table) {
+function Editar(table) {
     linha_selecionada = table.parentElement.parentElement;
     document.getElementById("produto").value = linha_selecionada.cells[0].innerHTML;
-    document.getElementById("imagem").value = linha_selecionada.cells[1].innerHTML;
+    document.getElementById("imagem").value = linha_selecionada.cells[1].querySelector('img').src;
     document.getElementById("descricao").value = linha_selecionada.cells[2].innerHTML;
 }
 
-function updateRecord(dados_formulario) {
+function atualizar_registro(dados_formulario) {
     linha_selecionada.cells[0].innerHTML = dados_formulario.produto;
-    linha_selecionada.cells[1].innerHTML = dados_formulario.imagem;
+    linha_selecionada.cells[1].innerHTML = `<img src="${dados_formulario.imagem}">`;
     linha_selecionada.cells[2].innerHTML = dados_formulario.descricao;
+}
+// Função Apagar
+function Apagar(td){
+    if(confirm('Você deseja apagar esses dados?')){
+        row = td.parentElement.parentElement;
+        document.getElementById("lista-produto").deleteRow(row.rowIndex);
+        resetar_formulario();
+    }
 }
