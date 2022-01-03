@@ -42,7 +42,7 @@ function inserir_novo_registro(data){
 
     var celula_04 = nova_linha.insertCell(3);
     celula_04.innerHTML = `
-      <button class="btn btn-secondary m-1" onClick="Editar(this)">editar</button>
+      <button class="btn btn-secondary m-1" onClick="Editar(this)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">editar</button>
       <button class="btn btn-danger m-1" onClick="Apagar(this)">excluir</button>
     `
 
@@ -51,6 +51,7 @@ function resetar_formulario() {
     document.getElementById("produto").value = "";
     document.getElementById("imagem").value = "";
     document.getElementById("descricao").value = "";
+    document.getElementById("botao-adicionar").disabled = true;
     linha_selecionada = null;
 }
 
