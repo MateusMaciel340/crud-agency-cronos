@@ -43,9 +43,14 @@ function inserir_novo_registro(data){
     var celula_04 = nova_linha.insertCell(3);
     celula_04.innerHTML = `
       <button class="btn btn-secondary m-1" onClick="Editar(this)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">editar</button>
-      <button class="btn btn-danger m-1" onClick="Apagar(this)">excluir</button>
+      <button class="btn btn-danger m-1" id="botao-apagar" onClick="Apagar(this)">excluir</button>
     `
-
+    document.getElementById("mensagem").innerHTML = `
+        <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Enviado!</strong> Dados enviados com sucesso!
+        </div>
+    `;
 }
 function resetar_formulario() {
     document.getElementById("produto").value = "";
@@ -68,6 +73,13 @@ function atualizar_registro(dados_formulario) {
     linha_selecionada.cells[0].innerHTML = dados_formulario.produto;
     linha_selecionada.cells[1].innerHTML = `<img src="${dados_formulario.imagem}">`;
     linha_selecionada.cells[2].innerHTML = dados_formulario.descricao;
+
+    document.getElementById("mensagem").innerHTML = `
+        <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Enviado!</strong> Dados enviados com sucesso!
+        </div>
+    `;
 }
 // Função Apagar
 // eslint-disable-next-line no-unused-vars
@@ -79,5 +91,12 @@ function Apagar(td){
         // eslint-disable-next-line no-undef
         document.getElementById("lista-produto").deleteRow(row.rowIndex);
         resetar_formulario();
-    }
+
+        document.getElementById("mensagem").innerHTML = `
+        <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Deletado!</strong> Dados deletados com sucesso!
+        </div>
+    `;
+    }   
 }
