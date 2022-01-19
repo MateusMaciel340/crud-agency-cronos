@@ -6,7 +6,7 @@ function Crud(e){
     // eslint-disable-next-line no-restricted-globals
     event.preventDefault();
 
-    var dados_formulario = ler_dados_formulario();
+    let dados_formulario = ler_dados_formulario();
 
     if(linha_selecionada == null){
         inserir_novo_registro(dados_formulario);
@@ -18,7 +18,7 @@ function Crud(e){
 
 // Recuperar os dados
 function ler_dados_formulario(){
-    var dados_formulario = {};
+    let dados_formulario = {};
     dados_formulario["produto"] = document.getElementById("produto").value;
     dados_formulario["imagem"] = document.getElementById("imagem").value;
     dados_formulario["descricao"] = document.getElementById("descricao").value;
@@ -28,19 +28,19 @@ function ler_dados_formulario(){
 
 // Inserir dados
 function inserir_novo_registro(data){
-    var tabela = document.getElementById("lista-produto").getElementsByTagName('tbody')[0];
-    var nova_linha = tabela.insertRow(tabela.length);
+    let tabela = document.getElementById("lista-produto").getElementsByTagName('tbody')[0];
+    let nova_linha = tabela.insertRow(tabela.length);
 
-    var celula_01 = nova_linha.insertCell(0);
+    let celula_01 = nova_linha.insertCell(0);
     celula_01.innerHTML = data.produto;
 
-    var celula_02 = nova_linha.insertCell(1);
+    let celula_02 = nova_linha.insertCell(1);
     celula_02.innerHTML = `<img src="${data.imagem}">`;
 
-    var celula_03 = nova_linha.insertCell(2);
+    let celula_03 = nova_linha.insertCell(2);
     celula_03.innerHTML = data.descricao;
 
-    var celula_04 = nova_linha.insertCell(3);
+    let celula_04 = nova_linha.insertCell(3);
     celula_04.innerHTML = `
       <button class="btn btn-secondary m-1" onClick="Editar(this)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">editar</button>
       <button class="btn btn-danger m-1" id="botao-apagar" onClick="Apagar(this)">excluir</button>
@@ -61,7 +61,6 @@ function resetar_formulario() {
 }
 
 // Editar - Nícolas Nobre
-// eslint-disable-next-line no-unused-vars
 function Editar(table) {
     linha_selecionada = table.parentElement.parentElement;
     document.getElementById("produto").value = linha_selecionada.cells[0].innerHTML;
@@ -82,7 +81,6 @@ function atualizar_registro(dados_formulario) {
     `;
 }
 // Função Apagar
-// eslint-disable-next-line no-unused-vars
 function Apagar(td){
     // eslint-disable-next-line no-restricted-globals
     if(confirm('Você deseja apagar esses dados?')){
